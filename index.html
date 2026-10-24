@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kettle &amp; Crumb – Tea house and bakery</title>
+<meta name="description" content="Fresh tea, warm samosas and baked goods all day. See the menu, opening hours and send us an order enquiry.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10302f;
+  --leaf:#2f6b57;
+  --saffron:#f0a81f;
+  --mist:#edf3ef;
+  --white:#ffffff;
+  --muted:#4a615c;
+  --font:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);background:var(--mist);line-height:1.6;font-size:1.05rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+
+header{background:var(--ink);color:var(--white)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;gap:1rem;flex-wrap:wrap}
+.logo{font-weight:800;font-size:1.25rem;text-decoration:none}
+.nav ul{list-style:none;padding:0;display:flex;gap:1.25rem}
+.nav a{text-decoration:none;opacity:.9}
+.nav a:hover{opacity:1;text-decoration:underline}
+
+.hero{background:var(--ink);color:var(--white);padding:3rem 0 4.5rem}
+.hero .wrap{display:grid;gap:2.5rem;grid-template-columns:1.2fr .8fr;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.02;font-weight:800;letter-spacing:-.02em}
+.hero p{margin:1.25rem 0 2rem;max-width:34rem;color:#cfe0da}
+.btn{display:inline-block;background:var(--saffron);color:var(--ink);font-weight:600;padding:.85rem 1.5rem;border-radius:999px;text-decoration:none;border:0;font:inherit;font-weight:600;cursor:pointer}
+.btn:hover{background:#ffc247}
+.btn.ghost{background:transparent;color:var(--white);border:2px solid var(--white);margin-left:.5rem}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
+
+.cup{aspect-ratio:1;max-width:340px;justify-self:center;width:100%}
+.cup svg{width:100%;height:100%}
+.steam{animation:rise 3.2s ease-in-out infinite;transform-origin:center bottom}
+.steam:nth-of-type(2){animation-delay:.6s}
+.steam:nth-of-type(3){animation-delay:1.2s}
+@keyframes rise{0%,100%{opacity:.25;transform:translateY(6px)}50%{opacity:.9;transform:translateY(-6px)}}
+
+section{padding:3.5rem 0}
+h2{font-size:clamp(1.7rem,3.5vw,2.4rem);line-height:1.15;margin-bottom:.5rem;letter-spacing:-.01em}
+.lead{color:var(--muted);max-width:36rem;margin-bottom:2rem}
+
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem 3rem}
+.menu h3{font-size:1.1rem;border-bottom:2px solid var(--leaf);padding-bottom:.4rem;margin-bottom:.8rem;color:var(--leaf)}
+.item{display:flex;justify-content:space-between;gap:1rem;padding:.4rem 0}
+.item span:last-child{font-weight:600;white-space:nowrap}
+.item small{display:block;color:var(--muted);font-size:.9rem}
+
+.info{background:var(--white)}
+.info .wrap{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.info table{border-collapse:collapse;width:100%}
+.info td{padding:.35rem 0;border-bottom:1px solid var(--mist)}
+.info td:last-child{text-align:right;font-weight:600}
+
+form{display:grid;gap:1rem;max-width:34rem}
+label{font-weight:600;display:grid;gap:.35rem}
+input,textarea{font:inherit;padding:.75rem .9rem;border:2px solid #b9cbc4;border-radius:10px;background:var(--white);color:var(--ink)}
+input:focus,textarea:focus{border-color:var(--leaf);outline:none}
+textarea{min-height:120px;resize:vertical}
+
+footer{background:var(--ink);color:#cfe0da;padding:1.5rem 0;font-size:.95rem}
+
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr}
+  .cup{max-width:220px;order:-1}
+  .btn.ghost{margin:.75rem 0 0}
+}
+@media (prefers-reduced-motion:reduce){.steam{animation:none;opacity:.7}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Kettle &amp; Crumb</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#order">Order</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Tea brewed slow. Snacks baked fresh.</h1>
+        <p>Start the morning with milk tea or a cup of coffee and a warm paratha roll, or stop by after work for samosas and a slice of cake. Everything is made with love in-house, every day.</p>
+        <a class="btn" href="#order">Place an Order</a>
+        <a class="btn ghost" href="#menu">See the menu</a>
+      </div>
+      <div class="cup" aria-hidden="true">
+        <svg viewBox="0 0 200 200" role="img">
+          <g fill="none" stroke="#f0a81f" stroke-width="5" stroke-linecap="round">
+            <path class="steam" d="M75 55c-10-12 10-18 0-32"/>
+            <path class="steam" d="M100 55c-10-12 10-18 0-32"/>
+            <path class="steam" d="M125 55c-10-12 10-18 0-32"/>
+          </g>
+          <path d="M45 75h110v35a55 55 0 0 1-55 55 55 55 0 0 1-55-55z" fill="#2f6b57"/>
+          <path d="M155 88h12a16 16 0 0 1 0 32h-16" fill="none" stroke="#2f6b57" stroke-width="9"/>
+          <ellipse cx="100" cy="75" rx="55" ry="9" fill="#f0a81f"/>
+          <ellipse cx="100" cy="182" rx="70" ry="7" fill="#000" opacity=".25"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <section id="menu">
+    <div class="wrap">
+      <h2>Today’s menu</h2>
+      <p class="lead">Prices are in BDT. Ask at the counter about today’s specials.</p>
+      <div class="menu">
+        <div>
+          <h3>Tea and coffee</h3>
+          <div class="item"><span>Milk tea<small>Slow-brewed, strong</small></span><span>60</span></div>
+          <div class="item"><span>Masala tea<small>Ginger and cardamom</small></span><span>80</span></div>
+          <div class="item"><span>Cold coffee<small>Chilled, lightly sweet</small></span><span>150</span></div>
+        </div>
+        <div>
+          <h3>Savory</h3>
+          <div class="item"><span>Samosa (2 pcs)<small>Potato and peas</small></span><span>50</span></div>
+          <div class="item"><span>Paratha roll<small>Egg or chicken</small></span><span>130</span></div>
+          <div class="item"><span>Cheese toast<small>Grilled, with salad</small></span><span>110</span></div>
+        </div>
+        <div>
+          <h3>Sweet</h3>
+          <div class="item"><span>Cake slice<small>Chocolate or vanilla</small></span><span>120</span></div>
+          <div class="item"><span>Butter cookie box<small>6 pieces</small></span><span>200</span></div>
+          <div class="item"><span>Firni cup<small>Cardamom rice pudding</small></span><span>90</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="info">
+    <div class="wrap">
+      <div>
+        <h2>Visit us</h2>
+        <p class="lead">12 Lake Road, Sample Town.<br>Phone: +880 1700 000000</p>
+      </div>
+      <div>
+        <h2>Opening hours</h2>
+        <table>
+          <tr><td>Saturday to Thursday</td><td>7 am – 10 pm</td></tr>
+          <tr><td>Friday</td><td>10 am – 11 pm</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap">
+      <h2>Order enquiry</h2>
+      <p class="lead">Planning an office order or a small event? Tell us what you need and we will reply the same day.</p>
+      <form name="order" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="order">
+        <label>Your name<input type="text" name="name" required></label>
+        <label>Phone or email<input type="text" name="contact" required></label>
+        <label>What would you like to order?<textarea name="message" required></textarea></label>
+        <button class="btn" type="submit">Send enquiry</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Kettle &amp; Crumb. Sample website for portfolio use.</div>
+</footer>
+
+</body>
+</html>
