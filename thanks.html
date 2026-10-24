@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Thank you – Kettle &amp; Crumb</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10302f;
+  --leaf:#2f6b57;
+  --saffron:#f0a81f;
+  --mist:#edf3ef;
+  --white:#ffffff;
+  --muted:#4a615c;
+  --font:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--font);color:var(--ink);background:var(--mist);line-height:1.6;font-size:1.05rem;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+
+header{background:var(--ink);color:var(--white)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;gap:1rem}
+.logo{font-weight:800;font-size:1.25rem;text-decoration:none}
+.nav a.back{text-decoration:none;opacity:.9}
+.nav a.back:hover{opacity:1;text-decoration:underline}
+
+main{flex:1}
+.hero{background:var(--ink);color:var(--white);padding:2.5rem 0 4rem;text-align:center}
+.cup{width:150px;height:150px;margin:0 auto 1rem}
+.cup svg{width:100%;height:100%}
+.steam{animation:rise 3.2s ease-in-out infinite}
+.steam:nth-of-type(2){animation-delay:.6s}
+.steam:nth-of-type(3){animation-delay:1.2s}
+@keyframes rise{0%,100%{opacity:.25;transform:translateY(6px)}50%{opacity:.9;transform:translateY(-6px)}}
+.hero h1{font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.05;font-weight:800;letter-spacing:-.02em}
+.hero p{margin:1rem auto 0;max-width:32rem;color:#cfe0da}
+
+.next{padding:3rem 0}
+.next h2{font-size:1.5rem;margin-bottom:1.25rem;text-align:center}
+.steps{list-style:none;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.steps li{background:var(--white);border-radius:14px;padding:1.25rem;border-top:4px solid var(--saffron)}
+.steps strong{display:block;color:var(--leaf);margin-bottom:.25rem}
+.steps span{color:var(--muted);font-size:.97rem}
+
+.actions{text-align:center;padding-bottom:3.5rem}
+.btn{display:inline-block;background:var(--saffron);color:var(--ink);font-weight:600;padding:.85rem 1.6rem;border-radius:999px;text-decoration:none}
+.btn:hover{background:#ffc247}
+.actions p{margin-top:1rem;color:var(--muted);font-size:.97rem}
+
+footer{background:var(--ink);color:#cfe0da;padding:1.5rem 0;font-size:.95rem}
+
+@media (prefers-reduced-motion:reduce){.steam{animation:none;opacity:.7}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="/">Kettle &amp; Crumb</a>
+    <a class="back" href="/">Back to home</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div class="cup" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <g fill="none" stroke="#f0a81f" stroke-width="5" stroke-linecap="round">
+            <path class="steam" d="M75 55c-10-12 10-18 0-32"/>
+            <path class="steam" d="M100 55c-10-12 10-18 0-32"/>
+            <path class="steam" d="M125 55c-10-12 10-18 0-32"/>
+          </g>
+          <path d="M45 75h110v35a55 55 0 0 1-55 55 55 55 0 0 1-55-55z" fill="#2f6b57"/>
+          <path d="M155 88h12a16 16 0 0 1 0 32h-16" fill="none" stroke="#2f6b57" stroke-width="9"/>
+          <ellipse cx="100" cy="75" rx="55" ry="9" fill="#f0a81f"/>
+          <ellipse cx="100" cy="182" rx="70" ry="7" fill="#000" opacity=".25"/>
+        </svg>
+      </div>
+      <h1>Thank you!</h1>
+      <p>Your enquiry is in. The kettle is on, and we will get back to you the same day.</p>
+    </div>
+  </div>
+
+  <section class="next">
+    <div class="wrap">
+      <h2>What happens next</h2>
+      <ol class="steps">
+        <li><strong>1. We read it</strong><span>Our team goes through your enquiry as soon as it arrives.</span></li>
+        <li><strong>2. We reach out</strong><span>Expect a call or message on the contact details you gave us.</span></li>
+        <li><strong>3. We bake and brew</strong><span>Once the details are confirmed, your order is prepared fresh.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="actions">
+    <div class="wrap">
+      <a class="btn" href="/">Back to the menu</a>
+      <p>Need us sooner? Call +880 1700 000000.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Kettle &amp; Crumb. Sample website for portfolio use.</div>
+</footer>
+
+</body>
+</html>
