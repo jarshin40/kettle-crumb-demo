@@ -25,12 +25,28 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--saffron);outline-offset:3px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
 
-header{background:var(--ink);color:var(--white)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;gap:1rem;flex-wrap:wrap}
-.logo{font-weight:800;font-size:1.25rem;text-decoration:none}
-.nav ul{list-style:none;padding:0;display:flex;gap:1.25rem}
-.nav a{text-decoration:none;opacity:.9}
-.nav a:hover{opacity:1;text-decoration:underline}
+html{scroll-padding-top:72px}
+header{background:var(--ink);color:var(--white);position:sticky;top:0;z-index:50;box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.25rem;gap:1rem;position:relative}
+.logo{font-weight:800;font-size:1.3rem;text-decoration:none;letter-spacing:-.01em}
+.logo span{color:var(--saffron)}
+.menu-btn{display:none;margin-left:auto;background:none;border:2px solid rgba(255,255,255,.35);border-radius:10px;width:2.8rem;height:2.8rem;cursor:pointer;padding:0;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.menu-btn span{display:block;width:20px;height:2px;background:var(--white);border-radius:2px;transition:transform .25s,opacity .25s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav ul{list-style:none;padding:0;display:flex;gap:.25rem;align-items:center}
+.nav ul a{display:block;text-decoration:none;padding:.5rem .9rem;border-radius:999px;opacity:.92;transition:background .2s}
+.nav ul a:hover{background:rgba(255,255,255,.12);opacity:1}
+.nav ul li:last-child a{background:var(--saffron);color:var(--ink);font-weight:600;opacity:1}
+.nav ul li:last-child a:hover{background:#ffc247}
+@media (max-width:760px){
+  .menu-btn{display:flex}
+  .nav ul{position:absolute;left:0;right:0;top:100%;background:var(--ink);flex-direction:column;align-items:stretch;gap:0;padding:.5rem 1.25rem 1.25rem;border-top:1px solid rgba(255,255,255,.1);box-shadow:0 18px 30px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s,transform .25s,visibility .25s}
+  .nav ul.open{opacity:1;visibility:visible;transform:none}
+  .nav ul a{padding:.9rem .5rem;border-radius:0;border-bottom:1px solid rgba(255,255,255,.08);font-size:1.1rem}
+  .nav ul li:last-child a{margin-top:.75rem;text-align:center;border-radius:999px;border:0;padding:.85rem}
+}
 
 .hero{background:var(--ink);color:var(--white);padding:3rem 0 4.5rem}
 .hero .wrap{display:grid;gap:2.5rem;grid-template-columns:1.2fr .8fr;align-items:center}
@@ -84,9 +100,10 @@ footer{background:var(--ink);color:#cfe0da;padding:1.5rem 0;font-size:.95rem}
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#top">Kettle &amp; Crumb</a>
+    <a class="logo" href="#top">Kettle <span>&amp;</span> Crumb</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuList" aria-label="Open menu"><span></span><span></span><span></span></button>
     <nav aria-label="Main">
-      <ul>
+      <ul id="menuList">
         <li><a href="#menu">Menu</a></li>
         <li><a href="#visit">Visit</a></li>
         <li><a href="#order">Order</a></li>
@@ -183,6 +200,21 @@ footer{background:var(--ink);color:#cfe0da;padding:1.5rem 0;font-size:.95rem}
 <footer>
   <div class="wrap">© 2026 Kettle &amp; Crumb. Sample website for portfolio use.</div>
 </footer>
+
+<script>
+(function(){
+  var btn=document.getElementById("menuBtn"), list=document.getElementById("menuList");
+  function setOpen(o){
+    list.classList.toggle("open",o);
+    btn.setAttribute("aria-expanded",o);
+    btn.setAttribute("aria-label",o?"Close menu":"Open menu");
+  }
+  btn.addEventListener("click",function(){setOpen(!list.classList.contains("open"));});
+  list.addEventListener("click",function(e){if(e.target.tagName==="A")setOpen(false);});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")setOpen(false);});
+  document.addEventListener("click",function(e){if(!e.target.closest(".nav"))setOpen(false);});
+})();
+</script>
 
 </body>
 </html>
