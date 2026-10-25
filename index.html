@@ -40,7 +40,7 @@ header{background:var(--ink);color:var(--white);position:sticky;top:0;z-index:50
 .nav ul a:hover{background:rgba(255,255,255,.12);opacity:1}
 .nav ul li:last-child a{background:var(--saffron);color:var(--ink);font-weight:600;opacity:1}
 .nav ul li:last-child a:hover{background:#ffc247}
-@media (max-width:760px){
+@media (max-width:860px){
   .menu-btn{display:flex}
   .nav ul{position:absolute;left:0;right:0;top:100%;background:var(--ink);flex-direction:column;align-items:stretch;gap:0;padding:.5rem 1.25rem 1.25rem;border-top:1px solid rgba(255,255,255,.1);box-shadow:0 18px 30px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s,transform .25s,visibility .25s}
   .nav ul.open{opacity:1;visibility:visible;transform:none}
@@ -73,6 +73,10 @@ h2{font-size:clamp(1.7rem,3.5vw,2.4rem);line-height:1.15;margin-bottom:.5rem;let
 .item{display:flex;justify-content:space-between;gap:1rem;padding:.4rem 0}
 .item span:last-child{font-weight:600;white-space:nowrap}
 .item small{display:block;color:var(--muted);font-size:.9rem}
+.item .lft{display:flex;align-items:center;gap:.8rem;min-width:0}
+.pic{flex:none;width:3.2rem;height:3.2rem;border-radius:14px;background:#dcebe4;display:grid;place-items:center;font-size:1.8rem;overflow:hidden}
+.pic img{width:100%;height:100%;object-fit:cover}
+.was{color:var(--muted);font-weight:400;font-size:.88em;margin-left:.4rem;text-decoration:line-through;text-decoration-thickness:1.5px}
 
 .info{background:var(--white)}
 .info .wrap{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
@@ -105,8 +109,9 @@ footer{background:var(--ink);color:#cfe0da;padding:1.5rem 0;font-size:.95rem}
     <nav aria-label="Main">
       <ul id="menuList">
         <li><a href="#menu">Menu</a></li>
-        <li><a href="#visit">Visit</a></li>
-        <li><a href="#order">Order</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="about.html">Our story</a></li>
+        <li><a href="find-us.html">Find us</a></li>
         <li><a href="quote.html">Get a quote</a></li>
       </ul>
     </nav>
@@ -146,21 +151,21 @@ footer{background:var(--ink);color:#cfe0da;padding:1.5rem 0;font-size:.95rem}
       <div class="menu">
         <div>
           <h3>Tea and coffee</h3>
-          <div class="item"><span>Milk tea<small>Slow-brewed, strong</small></span><span>60</span></div>
-          <div class="item"><span>Masala tea<small>Ginger and cardamom</small></span><span>80</span></div>
-          <div class="item"><span>Cold coffee<small>Chilled, lightly sweet</small></span><span>150</span></div>
+          <div class="item"><div class="lft"><span class="pic" aria-hidden="true">🍵</span><div>Milk tea<small>Slow-brewed, strong</small></div></div><span>60<del class="was">80</del></span></div>
+          <div class="item"><div class="lft"><span class="pic" aria-hidden="true">☕</span><div>Masala tea<small>Ginger and cardamom</small></div></div><span>80<del class="was">100</del></span></div>
+          <div class="item"><div class="lft"><span class="pic" aria-hidden="true">🥤</span><div>Cold coffee<small>Chilled, lightly sweet</small></div></div><span>150<del class="was">180</del></span></div>
         </div>
         <div>
           <h3>Savory</h3>
-          <div class="item"><span>Samosa (2 pcs)<small>Potato and peas</small></span><span>50</span></div>
-          <div class="item"><span>Paratha roll<small>Egg or chicken</small></span><span>130</span></div>
-          <div class="item"><span>Cheese toast<small>Grilled, with salad</small></span><span>110</span></div>
+          <div class="item"><div class="lft"><span class="pic" aria-hidden="true">🥟</span><div>Samosa (2 pcs)<small>Potato and peas</small></div></div><span>50<del class="was">60</del></span></div>
+          <div class="item"><div class="lft"><span class="pic" aria-hidden="true">🌯</span><div>Paratha roll<small>Egg or chicken</small></div></div><span>130<del class="was">160</del></span></div>
+          <div class="item"><div class="lft"><span class="pic" aria-hidden="true">🥪</span><div>Cheese toast<small>Grilled, with salad</small></div></div><span>110<del class="was">140</del></span></div>
         </div>
         <div>
           <h3>Sweet</h3>
-          <div class="item"><span>Cake slice<small>Chocolate or vanilla</small></span><span>120</span></div>
-          <div class="item"><span>Butter cookie box<small>6 pieces</small></span><span>200</span></div>
-          <div class="item"><span>Firni cup<small>Cardamom rice pudding</small></span><span>90</span></div>
+          <div class="item"><div class="lft"><span class="pic" aria-hidden="true">🍰</span><div>Cake slice<small>Chocolate or vanilla</small></div></div><span>120<del class="was">150</del></span></div>
+          <div class="item"><div class="lft"><span class="pic" aria-hidden="true">🍪</span><div>Butter cookie box<small>6 pieces</small></div></div><span>200<del class="was">250</del></span></div>
+          <div class="item"><div class="lft"><span class="pic" aria-hidden="true">🍮</span><div>Firni cup<small>Cardamom rice pudding</small></div></div><span>90<del class="was">110</del></span></div>
         </div>
       </div>
     </div>
