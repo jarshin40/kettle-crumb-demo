@@ -59,6 +59,10 @@ legend{font-weight:600;margin-bottom:.3rem}
 .note{margin-top:.9rem;font-size:.9rem;color:var(--muted)}
 #copied{min-height:1.4rem;font-size:.92rem;color:var(--leaf);margin-top:.5rem}
 
+.was{color:var(--muted);font-weight:400;font-size:.88em;margin-left:.4rem;text-decoration:line-through;text-decoration-thickness:1.5px}
+.lft{display:flex;align-items:center;gap:.8rem;min-width:0}
+.pic{flex:none;width:3.2rem;height:3.2rem;border-radius:14px;background:#dcebe4;display:grid;place-items:center;font-size:1.8rem;overflow:hidden}
+.pic img{width:100%;height:100%;object-fit:cover}
 footer{background:var(--ink);color:#cfe0da;padding:1.5rem 0;font-size:.95rem}
 
 @media (max-width:820px){
@@ -98,7 +102,7 @@ footer{background:var(--ink);color:#cfe0da;padding:1.5rem 0;font-size:.95rem}
       <fieldset>
         <legend>How will you get it?</legend>
         <label class="opt"><input type="radio" name="mode" value="pickup" checked> Pick up from the shop</label>
-        <label class="opt"><input type="radio" name="mode" value="delivery"> Delivery (BDT 80, free above BDT 1,500)</label>
+        <label class="opt"><input type="radio" name="mode" value="delivery"> Delivery (BDT 150, free above BDT 3,000)</label>
       </fieldset>
 
       <div id="totals" aria-live="polite"></div>
@@ -138,9 +142,15 @@ footer{background:var(--ink);color:#cfe0da;padding:1.5rem 0;font-size:.95rem}
     ]}
   ];
 
-  var DELIVERY_FEE = 80;
-  var FREE_DELIVERY_OVER = 1500;
-  var BULK_QTY = 25;       // total items needed for the bulk discount
+  // Real photos: put images in an "images" folder and list them here, e.g. milktea: "images/milk-tea.jpg"
+  var PHOTOS = {};
+  // Previous (old) prices shown with a line through them. Change or delete any line you like.
+  var OLD = { milktea:80, masala:100, coldcof:180, samosa:60, roll:160, toast:140, cake:150, cookies:250, firni:110 };
+  var PICS = { milktea:"🍵", masala:"☕", coldcof:"🥤", samosa:"🥟", roll:"🌯", toast:"🥪", cake:"🍰", cookies:"🍪", firni:"🍮" };
+
+  var DELIVERY_FEE = 150;
+  var FREE_DELIVERY_OVER = 3000;
+  var BULK_QTY = 50;       // total items needed for the bulk discount
   var BULK_RATE = 0.10;    // 10% off
 
   var qty = {};
@@ -168,6 +178,7 @@ footer{background:var(--ink);color:#cfe0da;padding:1.5rem 0;font-size:.95rem}
 
         var row = make("div", "row");
         var name = make("div", "name", it.name + " · " + money(it.price));
+        if (OLD[it.id]) name.appendChild(make("del", "was", money(OLD[it.id])));
         name.appendChild(make("small", "", it.note));
 
         var box = make("div", "qty");
@@ -195,7 +206,12 @@ footer{background:var(--ink);color:#cfe0da;padding:1.5rem 0;font-size:.95rem}
         input.addEventListener("input", function () { set(input.value); });
 
         box.appendChild(minus); box.appendChild(input); box.appendChild(plus);
-        row.appendChild(name); row.appendChild(box);
+        var lft = make("div", "lft");
+        var pic = make("span", "pic");
+        if (PHOTOS[it.id]) { var im = make("img"); im.src = PHOTOS[it.id]; im.alt = it.name; im.loading = "lazy"; pic.appendChild(im); }
+        else { pic.textContent = PICS[it.id] || "🍽️"; pic.setAttribute("aria-hidden", "true"); }
+        lft.appendChild(pic); lft.appendChild(name);
+        row.appendChild(lft); row.appendChild(box);
         itemsEl.appendChild(row);
       });
     });
